@@ -1,0 +1,25 @@
+"resources": [
+        {
+          "name": "connectionstrings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', variables('webSiteName'))]"
+          ],
+          "tags": {
+            "displayName": "tomConnectionString"
+          },
+          "properties": {
+
+            "storagekey": {
+              "value": "dshrwhrherje",
+              "type": "Custom"
+            },
+
+            "Redis": {
+              "value": "[listKeys(resourceId('Microsoft.Cache/Redis', variables('RedisName')), '2016-04-01').primaryKey]",
+              "type": "Custom"
+            },
+
+          },
+]
